@@ -24,3 +24,7 @@ Route::get('/welcome', function () {
 Route::get('/newproject', function () {
     return view('newproject');
 });
+
+Route::get('/modal', function () {
+    return view('modal');
+});

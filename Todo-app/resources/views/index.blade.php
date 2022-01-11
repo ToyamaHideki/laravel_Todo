@@ -8,7 +8,8 @@
   <div class="SubContent">
         <div class="newProject">
           <h3 class="sub_h3">DAY</h3>
-          <a class="btn btn-success P_button" href="#popup1">プロジェクトの新規作成</a>
+          <a href="#" class="js-modal-open btn btn-success btn btn-success P_button" data-target="modal01">新規プロジェクトの作成</a>
+
         </div>
       
         <!-- プロジェクトの表示 -->
@@ -20,15 +21,14 @@
     <div class="newProject">
 
       <h1 class="sub_h3">Task</h1>
-      <a class="btn btn-success P_button" onclick=disp()>タスクの追加</a>
+      <a href="#" class="js-modal-open btn btn-success btn btn-success P_button" data-target="modal02">新規タスクの作成</a>
+      
    </div>
 
       @include("task")
   </div>
 </div>
 
-@include("newprojuct")
-
-@include("newtask")
+@include("modal")
 
 @endsection("content")

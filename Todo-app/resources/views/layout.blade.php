@@ -12,23 +12,39 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
     <!-- JS -->
     <script src="{{ asset('/js/newtask.js') }}"></script>
+    <!--jQuary CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!--レスポンシブ対応させるよ  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo-App</title>
+    <title>modal</title>
 </head>
-
-
 <body>
     @yield("content")
 
 
-    <!-- jQueary使いますよ -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script>
+            // モーダルウィンドウを開く
+            $('.js-modal-open').on('click', function(){
+            var target = $(this).data('target');
+            var modal = document.getElementById(target);
+            scrollPosition = $(window).scrollTop();
+
+            $('body').addClass('fixed').css({'top': -scrollPosition});
+            $(modal).fadeIn();
+            return false;
+            });
+
+            // モーダルウィンドウを閉じる
+            $('.js-modal-close').on('click', function(){
+            $('body').removeClass('fixed');
+            window.scrollTo( 0 , scrollPosition );
+            $('.js-modal').fadeOut();
+            return false;
+            });
+        </script>
 </body>
 </html>
