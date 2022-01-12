@@ -14,7 +14,8 @@ class CreateExcutionsTable extends Migration
     public function up()
     {
         Schema::create('excutions', function (Blueprint $table) {
-           $table -> date("excution");
+           $table -> date("excution") -> primary();
+           $table -> timestamps();
         });
     }
 

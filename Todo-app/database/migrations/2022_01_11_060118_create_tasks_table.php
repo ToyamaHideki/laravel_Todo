@@ -23,8 +23,8 @@ class CreateTasksTable extends Migration
             $table -> date("deadline");
             $table -> string("setcount")->nullable();
             $table -> string("count")->nullable();
-            $table -> string("")
-            $table -> text("detail");
+            $table -> string("genru");
+            $table -> text("detail")->nullable();
             $table ->boolean("delete_flg")->default(true)->nullable();
         });
     }

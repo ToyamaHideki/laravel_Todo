@@ -7,7 +7,7 @@
 
 
 
-                <form class="d-flex" action="" method="">
+                <form class="d-flex" action={{ route('new.project') }} method="get">
                   <!-- 送る先を後で決めなければならないよ -->
 
 
@@ -77,7 +77,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <select name="" id="">
+                                        <select name="genru">
                                             <option value="id">腕</option>                  
                                             <option value="id">胸筋</option>
                                             <!-- for文で回してジャンルを表示 -->
@@ -98,17 +98,19 @@
                             <tr>
                                 <td>
                                     <!-- セット数 -->
-                                    <select name="" id="">
-                                        <!-- for文で２０セット表示 -->
-                                        <option value="1">20</option>
+                                    <select name="setcount">
+                                        @for($i=1 ; $i<=20 ; $i++)
+                                        <option value={{$i}}>{{$i}}</option>
+                                        @endfor
                                     </select>
                                 </td>
 
                                 <td>
                                     <!-- 回数 -->
-                                    <select name="" id="">
-                                        <!-- for文で２０セット表示 -->
-                                        <option value="1">30</option>
+                                    <select name="count">
+                                        @for($i=1 ; $i<=50 ; $i++)
+                                        <option value={{$i}}>{{$i}}</option>
+                                        @endfor
                                     </select>
                                     
                                 </td>
