@@ -25,7 +25,10 @@ Route::get('/newproject', [ExcutionController::class,"store"])->name("newproject
 //新規タスクの作成
 Route::get('/newtask', [TaskController::class,"store"])->name("newtask");
 
+//タスク一覧の表示
+Route::get('/showtask',[TaskController::class,"taskshow"])->name("showtask");
+// タスクの削除
+Route::get('/delete',[TaskController::class,"delete"])->name("delete");
+// タスク完了
+Route::get("/clear",[TaskController::class,"clear"])-> name("clear");
 
-
-
-// プロジェクト詳細ボタン

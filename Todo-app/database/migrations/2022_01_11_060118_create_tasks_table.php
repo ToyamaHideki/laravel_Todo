@@ -18,14 +18,13 @@ class CreateTasksTable extends Migration
             $table -> string("name",50);
             $table ->char("status",1);
             $table ->timestamps();
-            $table ->datetime("delete_at")->nullable();
+            $table ->softDeletes();
             $table -> datetime("achivement")->nullable();
             $table -> date("deadline");
             $table -> string("setcount")->nullable();
             $table -> string("count")->nullable();
             $table -> string("genru");
             $table -> text("detail")->nullable();
-            $table ->boolean("delete_flg")->default(true)->nullable();
         });
     }
 

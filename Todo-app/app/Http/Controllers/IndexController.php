@@ -13,8 +13,9 @@ class IndexController extends Controller
     public function index(){
         $excutions = Excution::all();
         $genrus    = Genru::all();
+        $tasks     = null;
         
 
-        return view("index",["excutions"=>$excutions,"genrus"=>$genrus]);
+        return view("index",["excutions"=>$excutions,"genrus"=>$genrus ,"tasks" => $tasks]);
     }
 }
