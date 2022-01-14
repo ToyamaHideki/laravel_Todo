@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
+    protected $guarded =['id','create_at'];
     use HasFactory;
     use SoftDeletes;
 }

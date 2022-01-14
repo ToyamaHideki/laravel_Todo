@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     // トップページ読み込み時
     public function index(){
-        $excutions = Excution::all();
+        $excutions = Excution::latest() ->get();
         $genrus    = Genru::all();
         $tasks     = null;
         

@@ -22,7 +22,7 @@ class TaskController extends Controller
 
         // $task -> id           = "自動採番"
         $task -> name         = $request ->name;
-        $task -> status       = 1;
+        $task -> status       = 0;
         // $task -> delete_at = null;
         // $task -> achivement   =null;
         $task -> deadline     = $excute;
@@ -33,7 +33,12 @@ class TaskController extends Controller
 
         $task -> save();
 
-        return redirect("");
+        // 値を保持してindexに変換
+        $excutions  = Excution::latest() ->get();
+        $genrus     = Genru::all();
+        $tasks      = $task -> where("deadline",$excute)->get();
+
+        return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
     
         }
 
@@ -47,9 +52,9 @@ class TaskController extends Controller
         $task = new Task;
 
         $excute     = $request -> excution;
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$excute) -> get();
        
-        $excutions  = Excution::all();
+        $excutions  = Excution::latest() ->get();
         $genrus     = Genru::all();
       
 
@@ -68,7 +73,7 @@ class TaskController extends Controller
         // 値を保持してindexに変換
         $excute     = $request -> excution;
         $tasks      = $task -> where("deadline",$excute)->get();
-        $excutions  = Excution::all();
+        $excutions  = Excution::latest() ->get();
         $genrus     = Genru::all();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
@@ -81,17 +86,21 @@ class TaskController extends Controller
         $task = new Task;
         
         $id = $request -> id;
-        $status = $request -> status;
-        $task -> where("id",$id) -> get();
-        $task -> status = 1;
-        $task -> achivement = 
-        $task -> save();
+        // $name = $request -> name;
+        // dd($id);
+        $task -> where("id",$id) ->update([
+            "status" => $request -> status,
+             "achivement" => now()
+        ]);
+
+        
+
 
 
         // 値を保持してindexに変換
         $excute     = $request -> excution;
         $tasks      = $task -> where("deadline",$excute)->get();
-        $excutions  = Excution::all();
+        $excutions  = Excution::latest() ->get();
         $genrus     = Genru::all();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
@@ -99,19 +108,52 @@ class TaskController extends Controller
     }
 
 
+    // タスク編集
+    public function edit(Request $request){
+        $id = $request -> id;
 
+        $tasks = Task::where("id",$id) ->get();
+
+        // 値を保持してindexに変換
+        $excute     = $request -> excution;
+        $excutions  = Excution::latest() ->get();
+        $genrus     = Genru::all();
+
+        return view("edit",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
+
+    }
+
+    public function update(Request $request){
+
+        $yy = $request -> yy;
+        $mm = $request -> mm;
+        $dd = $request -> dd;
+        // DATE型に変更
+        
+        $tk = new Task;
+        $tk = $tk -> where("id",$request -> id) ->update([
+            "name"       =>	$request -> name,
+            "status"     =>	$request -> status,
+            "deadline"   =>	 $yy."-".$mm."-".$dd,
+            "setcount"   =>	$request -> setcount,
+            "count"	     =>	$request -> count,
+            "genru"	     =>	$request -> genru,
+            "detail"	 =>	$request -> detail
+            
+        ]);
+
+        $task = new Task;
+
+
+        // 値を保持してindexに変換
+        $excute     = $yy."-".$mm."-".$dd;
+        $excutions  = Excution::latest() ->get();
+        $genrus     = Genru::all();
+        $tasks      = $task -> where("deadline",$excute)->get();
+
+        return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
+
+
+    }
 
 }
-// id	自動採番
-// name	タスク名　
-// status　ステータス　完了0 未完了1 期限切れ2
-// created_at	save()メソッドで自動挿入
-// updated_at	save()メソッドで自動挿入
-// delete_at	タスクを削除した時に日付挿入　null
-// achivement   完了を押したときに挿入　　　　null
-// deadline　　  完了期限 excutionとココを比較
-// setcount	　　セット数
-// count	　　回数
-// genru	　　ジャンル
-// detail	　　詳細　　　　　　　　　　　　　null
-// delete_flg   true設定

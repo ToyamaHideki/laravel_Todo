@@ -31,4 +31,7 @@ Route::get('/showtask',[TaskController::class,"taskshow"])->name("showtask");
 Route::get('/delete',[TaskController::class,"delete"])->name("delete");
 // タスク完了
 Route::get("/clear",[TaskController::class,"clear"])-> name("clear");
-
+// タスク編集画面表示
+Route::get("/edit",[TaskController::class,"edit"]) -> name("edit");
+// タスク更新
+Route::get("/update",[TaskController::class,"update"]) -> name("update");

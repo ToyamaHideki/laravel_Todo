@@ -6,12 +6,11 @@
 <div class="main">
 
     <div class="SubContent">
-        <div class="newProject">
+      
             <h3 class="sub_h3">DAY</h3>
             <!-- モーダル遷移を行う -->
-            <a href="#" class="js-modal-open btn btn-success btn btn-success P_button" 
-                                            data-target="modal01">新規プロジェクトの作成</a>
-        </div>
+
+     
 
         <!-- プロジェクトの表示 -->
         @include("project")
