@@ -12,14 +12,9 @@ class TaskController extends Controller
 {
     // タスクの新規作成
     public function store(Request $request){
-        $yy = $request -> yy;
-        $mm = $request -> mm;
-        $dd = $request -> dd;
-        // DATE型に変更
-        $excute = $yy."-".$mm."-".$dd;
-
+        
         $task = new Task;
-
+        $excute = $request -> excution;
         // $task -> id           = "自動採番"
         $task -> name         = $request ->name;
         $task -> status       = 0;
@@ -34,7 +29,7 @@ class TaskController extends Controller
         $task -> save();
 
         // 値を保持してindexに変換
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
         $tasks      = $task -> where("deadline",$excute)->get();
 
@@ -54,7 +49,7 @@ class TaskController extends Controller
         $excute     = $request -> excution;
         $tasks      = $task -> where("deadline",$excute) -> get();
        
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
       
 
@@ -73,7 +68,7 @@ class TaskController extends Controller
         // 値を保持してindexに変換
         $excute     = $request -> excution;
         $tasks      = $task -> where("deadline",$excute)->get();
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
@@ -92,6 +87,28 @@ class TaskController extends Controller
             "status" => $request -> status,
              "achivement" => now()
         ]);
+        // 値を保持してindexに変換
+        $excute     = $request -> excution;
+        $tasks      = $task -> where("deadline",$excute)->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
+        $genrus     = Genru::all();
+
+        return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
+
+    }
+
+    // タスク未完了に戻す
+    public function return(Request $request){
+        
+        $task = new Task;
+        
+        $id = $request -> id;
+        // $name = $request -> name;
+        // dd($id);
+        $task -> where("id",$id) ->update([
+            "status" => $request -> status,
+             "achivement" => NULL
+        ]);
 
         
 
@@ -100,7 +117,7 @@ class TaskController extends Controller
         // 値を保持してindexに変換
         $excute     = $request -> excution;
         $tasks      = $task -> where("deadline",$excute)->get();
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
@@ -116,7 +133,7 @@ class TaskController extends Controller
 
         // 値を保持してindexに変換
         $excute     = $request -> excution;
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
         return view("edit",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
@@ -125,16 +142,13 @@ class TaskController extends Controller
 
     public function update(Request $request){
 
-        $yy = $request -> yy;
-        $mm = $request -> mm;
-        $dd = $request -> dd;
-        // DATE型に変更
+        
         
         $tk = new Task;
         $tk = $tk -> where("id",$request -> id) ->update([
             "name"       =>	$request -> name,
             "status"     =>	$request -> status,
-            "deadline"   =>	 $yy."-".$mm."-".$dd,
+            "deadline"   =>	$request -> excution,
             "setcount"   =>	$request -> setcount,
             "count"	     =>	$request -> count,
             "genru"	     =>	$request -> genru,
@@ -146,10 +160,9 @@ class TaskController extends Controller
 
 
         // 値を保持してindexに変換
-        $excute     = $yy."-".$mm."-".$dd;
-        $excutions  = Excution::latest() ->get();
+        $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$request -> excution)->get();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
 

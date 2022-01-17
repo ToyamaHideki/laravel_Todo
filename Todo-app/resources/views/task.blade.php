@@ -32,7 +32,7 @@
                     </td>
                 </tr>
                 <tr class="task_tr">
-                    <th colspan="3" >セット ×　回数</th>
+                    <th colspan="3" >セット × 回数</th>
                      <th colspan="3" >メモ</th>
                  </tr>
                 <tr class="task_tr">
@@ -76,9 +76,9 @@
                             <input type="submit" value="          完了           " class="btn btn-secondary">
                         </form>
                         @else
-                        <form action="{{route('clear')}}" method="get">
+                        <form action="{{route('return')}}" method="get">
                             <input type="hidden" name="id" value="{{$task -> id}}">
-                            <input type="hidden" name="status" value="1">
+                            <input type="hidden" name="status" value="0">
                             <input type="hidden" name="name" value="{{$task -> name}}">
                             @foreach($excutions as $excution)
                             @if($excution ->excution == $task -> deadline)

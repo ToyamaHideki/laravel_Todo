@@ -19,12 +19,16 @@ use App\Http\Controllers\TaskController;
 // トップページ
 Route::get('/', [indexController::class,'index'])->name("home");
 
+
 // プロジェクト新規作成
 Route::get('/newproject', [ExcutionController::class,"store"])->name("newproject");
+// プロジェクトの検索
+Route::get("/searchproject",[ExcutionController::class , "search"])->name("search");
+
+
 
 //新規タスクの作成
 Route::get('/newtask', [TaskController::class,"store"])->name("newtask");
-
 //タスク一覧の表示
 Route::get('/showtask',[TaskController::class,"taskshow"])->name("showtask");
 // タスクの削除
@@ -35,3 +39,5 @@ Route::get("/clear",[TaskController::class,"clear"])-> name("clear");
 Route::get("/edit",[TaskController::class,"edit"]) -> name("edit");
 // タスク更新
 Route::get("/update",[TaskController::class,"update"]) -> name("update");
+// 未完了に戻す　(ミスタップのため)
+Route::get("/return",[TaskController::class,"return"]) -> name("return");

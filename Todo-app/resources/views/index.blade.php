@@ -1,32 +1,33 @@
 @extends("layout")
 
 @section("content")
-@include("menu")
+
 
 <div class="main">
 
+
     <div class="SubContent">
-      
-            <h3 class="sub_h3">DAY</h3>
-            <!-- モーダル遷移を行う -->
-
-     
-
+        <h3 class="sub_h3">DAY</h3>
         <!-- プロジェクトの表示 -->
         @include("project")
-
     </div>
 
 
+    <!-- 日付タスク表示 -->
     <div class="MainContent">
-        <div class="newProject">
-            <h1 class="sub_h3">Task</h1>
-            <!-- モーダル遷移を行う -->
-            <a href="#" class="js-modal-open btn btn-success btn btn-success P_button" 
-                                                data-target="modal02">新規タスクの作成</a>
-        </div>
+        @include("tasks")
+    </div>
 
-        @include("task")
+
+    <!-- 新規プロジェクトの作成 -->
+    <div class="create-project-content">
+        @include("create-project")
+    </div>
+
+
+    <!-- タスクを作成 -->
+    <div class="create-task-content">
+        @include("create-task")
     </div>
 
 
