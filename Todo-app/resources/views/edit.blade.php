@@ -14,7 +14,7 @@
 
 
     <div class="MainContent">
-        @include("task")
+        @include("tasks")
     </div>
 
 
@@ -23,9 +23,10 @@
         @include("create-project")
     </div>
 
+    <div class="create-task-content">
     @foreach($tasks as $task)
     <!-- タスクを作成 -->
-    <div class="create-task-content">
+    
         <form action="{{route('update')}}" method="get" class="create-task-form">
             {{ csrf_field() }}
 
@@ -43,6 +44,7 @@
 
             </select>
 
+            <br>
             <label>タスク名(必須) : </label>
             <input type="text" name="name" value="{{$task -> name}}" maxlength="50" size="30" required>
             <br>
@@ -51,23 +53,22 @@
             <input type="text" name="count" value="{{$task -> count}}" placeholder="" maxlength="3" size="3">
             <label>セット回数 : </label>
             <input type="text" name="setcount" value="{{$task -> setcount}}" maxlength="2" size="2">
-            <br>
 
 
             @php
             $date = now();
             @endphp
             <label>プロジェクト実行日 : </label>
-            <input class="project-text" type="text" name="excution" value="{{$task -> deadline}}">
-            <small class="p-small"> ※0000-00-00 の形で記入</small>
+            <input class="project-text" type="date" name="excution" valu="{{$task -> deadline}}" >
+            
             <br>
             <input type="submit" value="  更新  " class="btn btn-success">
 
             <input type="hidden" name="id" value="{{$task -> id}}">
             <input type="hidden" name="status" value="{{$task -> status}}">
         </form>
+        @endforeach
     </div>
-    @endforeach
 
 
 

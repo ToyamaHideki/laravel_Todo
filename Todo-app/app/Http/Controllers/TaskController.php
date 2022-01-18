@@ -17,7 +17,7 @@ class TaskController extends Controller
         $excute = $request -> excution;
         // $task -> id           = "自動採番"
         $task -> name         = $request ->name;
-        $task -> status       = 0;
+        $task -> status       = 1;
         // $task -> delete_at = null;
         // $task -> achivement   =null;
         $task -> deadline     = $excute;
@@ -31,7 +31,8 @@ class TaskController extends Controller
         // 値を保持してindexに変換
         $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$excute) -> latest("status",'asc')-> get();
+
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
     
@@ -47,7 +48,7 @@ class TaskController extends Controller
         $task = new Task;
 
         $excute     = $request -> excution;
-        $tasks      = $task -> where("deadline",$excute) -> get();
+        $tasks      = $task -> where("deadline",$excute) -> latest("status",'asc')-> get();
        
         $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
@@ -67,7 +68,7 @@ class TaskController extends Controller
 
         // 値を保持してindexに変換
         $excute     = $request -> excution;
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$excute) -> latest("status",'asc')-> get();
         $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
@@ -89,7 +90,7 @@ class TaskController extends Controller
         ]);
         // 値を保持してindexに変換
         $excute     = $request -> excution;
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$excute) -> latest("status",'asc')-> get();
         $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
@@ -116,7 +117,7 @@ class TaskController extends Controller
 
         // 値を保持してindexに変換
         $excute     = $request -> excution;
-        $tasks      = $task -> where("deadline",$excute)->get();
+        $tasks      = $task -> where("deadline",$excute) -> latest("status",'asc')-> get();
         $excutions  = Excution::latest("excution","desc") ->get();
         $genrus     = Genru::all();
 
@@ -140,11 +141,10 @@ class TaskController extends Controller
 
     }
 
+    // 更新
     public function update(Request $request){
-
-        
-        
         $tk = new Task;
+
         $tk = $tk -> where("id",$request -> id) ->update([
             "name"       =>	$request -> name,
             "status"     =>	$request -> status,
@@ -153,16 +153,15 @@ class TaskController extends Controller
             "count"	     =>	$request -> count,
             "genru"	     =>	$request -> genru,
             "detail"	 =>	$request -> detail
-            
         ]);
 
         $task = new Task;
 
 
         // 値を保持してindexに変換
-        $excutions  = Excution::latest("excution","desc") ->get();
+        $excutions  = Excution::latest("excution") ->get();
         $genrus     = Genru::all();
-        $tasks      = $task -> where("deadline",$request -> excution)->get();
+        $tasks      = $task -> where("deadline",$request -> excution) -> latest("status",'asc') ->get();
 
         return view("index",["tasks"=>$tasks ,"excutions"=>$excutions, "genrus"=>$genrus]);
 

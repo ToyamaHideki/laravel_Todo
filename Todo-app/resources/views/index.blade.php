@@ -7,7 +7,7 @@
 
 
     <div class="SubContent">
-        <h3 class="sub_h3">DAY</h3>
+        <a href="{{route('home')}}"><h3>HOME</h3></a>
         <!-- プロジェクトの表示 -->
         @include("project")
     </div>

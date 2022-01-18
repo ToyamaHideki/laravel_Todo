@@ -104,7 +104,8 @@
                     <!-- 削除ボタン -->
                     <td rowspan="2">
                         <form action="{{route('delete')}}" method="get">
-                            <input type="submit" value="           削除           " class="btn btn-danger">
+                        <img src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png" type="submit">
+                            <input type="submit" value="削除" class="btn btn-danger">
                             <input type="hidden" name="id" value="{{$task -> id}}">
                             @foreach($excutions as $excution)
                             @if($excution ->excution == $task -> deadline)

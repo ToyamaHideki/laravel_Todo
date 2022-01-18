@@ -15,7 +15,8 @@ class CreateGenrusTable extends Migration
     {
         Schema::create('genrus', function (Blueprint $table) {
             $table->increments("genru_id");
-            $table->string("genru_name",20);
+            $table -> String("genru");
+            $table->string("genru_name",26);
         });
     }
 
