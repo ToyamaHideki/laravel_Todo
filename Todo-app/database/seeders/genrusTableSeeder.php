@@ -34,6 +34,11 @@ class genrusTableSeeder extends Seeder
             ["genru_id" => null ,"genru" => "背中","genru_name" => "広背筋(中央部から脇の下)"],
             ["genru_id" => null ,"genru" => "背中","genru_name" => "大円筋(脇の下部分)"],
             ["genru_id" => null ,"genru" => "背中","genru_name" => "脊柱起立筋(頭蓋骨の下~背骨の両脇,骨盤付近)"],
+            // 腹部
+            ["genru_id" => null ,"genru" => "腹部","genru_name" => "腹直筋(前面)"],
+            ["genru_id" => null ,"genru" => "腹部","genru_name" => "腹斜筋（外側）"],
+            ["genru_id" => null ,"genru" => "腹部","genru_name" => "腹横筋(インナーマッスル)"],
+
             // 腕
             ["genru_id" => null ,"genru" => "腕部","genru_name" => "三角筋(肩)"],
             ["genru_id" => null ,"genru" => "腕部","genru_name" => "上腕二頭筋(前側)"],
@@ -73,6 +78,10 @@ class genrusTableSeeder extends Seeder
 // 健康的な印象を与える
 // 腕力がつく
 // 握力も鍛えられる
+
+// 腹部
+
+
 
 // 腕
 //     三角筋

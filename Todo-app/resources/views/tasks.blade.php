@@ -15,7 +15,7 @@
 
     @if($task -> status == "1" && $task -> deadline < $time)
      <label class="status-label" style="background: rgb(252, 83, 83);">
-        <h5>期限切れ</h5>
+        期限切れ
         </label>
         @else
         @switch($task -> status)
@@ -115,6 +115,7 @@
 
 
         <!-- 編集ボタン -->
+        @if($task -> status == 1)
         <form class="edit-form" action="{{route('edit')}}" method="get">
             @csrf
             <input type="submit" value="           編集           " class="btn btn-success edit-button">
@@ -125,13 +126,13 @@
             @endif
             @endforeach
         </form>
-
-
+        @endif
 
         <!-- 削除ボタン -->
         <form class="delete-form" action="{{route('delete')}}" method="get">
+            
             <button type="submit" class="delete-button">
-                <img src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png" type="submit">
+                <img src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png" class="delete-button-inner">
             </button>
             <!-- <input type="submit" value="           削除           " class="btn btn-danger"> -->
             <input type="hidden" name="id" value="{{$task -> id}}">
@@ -140,8 +141,8 @@
             <input type="hidden" name="excution" value="{{$excution -> excution}}">
             @endif
             @endforeach
-        </form>
 
+        </form>
 
 </div>
 

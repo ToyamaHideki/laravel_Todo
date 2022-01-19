@@ -16,6 +16,10 @@
             /* Chrome, Safari 対応 */
             display: none;
         }
+        
+        textarea {
+            resize: none;
+        }
         /* ===================　SubContent　======================= */
         
         .SubContent {
@@ -76,7 +80,8 @@
             width: 40%;
             padding: 20px;
             margin: 50px 30px 30px 50px;
-            background: rgb(219, 187, 158);
+            background: rgb(201, 128, 60);
+            opacity: 0.97;
             float: left;
             border: solid rgb(0, 0, 0);
             border-radius: 10px;
@@ -115,8 +120,15 @@
         
         .delete-button {
             position: relative;
-            top: -308px;
-            right: -450px;
+            top: -308.5px;
+            right: -526.5px;
+            width: 30px;
+            height: 30px
+        }
+        
+        .delete-button-inner {
+            width: 15px;
+            height: 15px;
         }
         
         .edit-form {
