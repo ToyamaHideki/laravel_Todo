@@ -41,3 +41,8 @@ Route::get("/edit",[TaskController::class,"edit"]) -> name("edit");
 Route::get("/update",[TaskController::class,"update"]) -> name("update");
 // 未完了に戻す　(ミスタップのため)
 Route::get("/return",[TaskController::class,"return"]) -> name("return");
+
+
+Route::get("/weight",function(){
+    return view("we");
+});
