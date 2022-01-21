@@ -5,6 +5,11 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ExcutionController;
 use App\Http\Controllers\GenruController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\IdealController;
+use App\Http\Controllers\RealController;
+use App\Http\Controllers\ProteinController;
+use App\Http\Controllers\CalorieController;
+use App\Http\Controllers\WeightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +48,14 @@ Route::get("/update",[TaskController::class,"update"]) -> name("update");
 Route::get("/return",[TaskController::class,"return"]) -> name("return");
 
 
-Route::get("/weight",function(){
-    return view("we");
-});
+Route::get("/weight",[WeightController::class,"show"]) -> name("weight");
+
+
+// 理想体重を登録
+Route::post("/ideal",[IdealController::class,"ideal"]) -> name("ideal");
+// 現在体重表示
+Route::post("/real",[RealController::class,"real"]) -> name("real");
+//　摂取蛋白質登録
+Route::post("/protein",[ProteinController::class,"protein"]) -> name("protein");
+//　カロリー登録
+Route::post("/calorie",[CalorieController::class,"calorie"]) -> name("calorie");
