@@ -9,4 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 class Excution extends Model
 { 
     use HasFactory;
+    protected $dates = ['excution'];
 }

@@ -9,11 +9,5 @@ class Real extends Model
 {
     use HasFactory;
 
-    /**
-     * テーブルに関連付ける主キー
-     *
-     * @var string
-     */
-    protected $primaryKey = 'date';
-    protected $fillable = ['real'];
+    protected $fillable = ['protain','real','calorie']; //保存したいカラム名が複数の場合
 }

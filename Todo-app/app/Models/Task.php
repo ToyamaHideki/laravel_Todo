@@ -11,6 +11,9 @@ class Task extends Model
     protected $guarded =['id','create_at'];
     use HasFactory;
     use SoftDeletes;
+
+    
+    protected $dates = ['deadline'];
 }
 // id	自動採番
 // name	タスク名　

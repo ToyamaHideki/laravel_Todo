@@ -14,9 +14,12 @@ class CreateRealsTable extends Migration
     public function up()
     {
         Schema::create('reals', function (Blueprint $table) {
-            $table->date("date")->primary();
-            $table->float("real");
-            $table ->timestamps();
+            $table -> id();
+            $table -> date("date");
+            $table -> float("real") -> nullable();
+            $table -> integer("protain")-> nullable();
+            $table -> integer("calorie")-> nullable();
+            $table -> timestamps();
         });
     }
 

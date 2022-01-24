@@ -38,6 +38,6 @@ class RealController extends Controller
             $real_date[]   = $list -> date;
         }
     
-        return view("we",["real"=>$real_weight, "date" => $real_date]);
+        return view("weight",["real"=>$real_weight, "date" => $real_date]);
     }
 }

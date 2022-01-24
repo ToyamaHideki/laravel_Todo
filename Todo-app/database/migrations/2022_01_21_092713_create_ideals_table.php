@@ -14,7 +14,7 @@ class CreateIdealsTable extends Migration
     public function up()
     {
         Schema::create('ideals', function (Blueprint $table) {
-            $table->date("date")->primary();
+            $table->id();
             $table->float("ideal");
             $table ->timestamps();
         });

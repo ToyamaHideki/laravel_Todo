@@ -6,8 +6,9 @@
 <div class="main">
 
 
+
     <div class="SubContent">
-        <a href="{{route('home')}}"><h3>HOME</h3></a>
+        <a href="{{route('home')}}"><img src="../img/アイコン.jpeg" alt=""></a>
         <!-- プロジェクトの表示 -->
         @include("project")
     </div>

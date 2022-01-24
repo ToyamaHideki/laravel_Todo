@@ -21,6 +21,14 @@
         textarea {
             resize: none;
         }
+
+        .menu{
+            margin: 0 auto;
+            width: 100%;
+            border: solid;
+           display: inline-flex;
+
+        }
         /* ===================　SubContent　======================= */
         
         .SubContent {
@@ -58,13 +66,13 @@
             /* margin: 10px 10px 10px auto; */
             float: right;
             width: 85%;
-            height: 70%;
+            height: 80%;
             background-image: url("../image/筋トレの美学.png") ;
             background-color: #fff;
             background-size:800px;
             background-repeat: no-repeat;
             background-position: center;
-            border: solid #000000;
+            border: solid 4px #000000;
             /* border-radius: 10px; */
             overflow: scroll
         }
@@ -83,7 +91,7 @@
             width: 40%;
             padding: 20px;
             margin: 50px 30px 30px 50px;
-            background: rgb(201, 128, 60);
+            background: rgb(78, 61, 46);
             opacity: 0.97;
             float: left;
             border: solid rgb(0, 0, 0);
@@ -139,10 +147,10 @@
             height: 0;
         }
         
-        .edit-button {
+        .btn-dark {
             position: relative;
             top: 0px;
-            right: -300px;
+            right: -300px;       
         }
         
         .genru-label {
@@ -190,7 +198,7 @@
             width: 85%;
             height: 30%;
             background-color: #a5a5a5;
-            border: solid #000000;
+            border: solid 4px #000000;
         }
         
         .task-detail-div {
@@ -221,7 +229,11 @@
         }
         
         .project-text {
-            margin: 0 0 10px 10px;
+        margin: 5px 0 0 30px;
+        }
+       .btn-success{
+            margin: 10px;
+            margin-bottom: 0px;
         }
         
         .task_Day {

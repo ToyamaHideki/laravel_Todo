@@ -4,10 +4,8 @@
 
 
 <div class="main">
-
-
     <div class="SubContent">
-        <h3 class="sub_h3">DAY</h3>
+
         <!-- プロジェクトの表示 -->
         @include("project")
     </div>

@@ -21,11 +21,12 @@ html,body {
     /* margin: 10px; */
     float: left;
     width: 15%;
-    height: 99%;
-    background-color: #e8e8eb;
+    height: 880px;
+    background-color: #ffffff;
     border: solid #000000;
     /* border-radius: 10px; */
     overflow: scroll;
+    list-style: none;
 }
 
 .MainContent {
@@ -41,3 +42,9 @@ html,body {
 
 }
 
+.link{
+    float: right;
+}
+ul li{
+    list-style: none;
+}

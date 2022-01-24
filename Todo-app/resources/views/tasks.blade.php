@@ -20,7 +20,7 @@
         @else
         @switch($task -> status)
         @case(1)
-        <label class="status-label" style="background: rgb(252, 83, 83);">
+        <label class="status-label" style="background: rgb(53, 41, 31);">
             未達成
             </label>
         @break
@@ -76,10 +76,10 @@
 
 
         <label class="update-label">&emsp;更新日 :
-            {{$task ->updated_at}}&emsp;&emsp;&emsp;&emsp;
+            {{$task['updated_at'] -> format('Y年m月d日')}}&emsp;&emsp;&emsp;&emsp;
         </label>
         <label class="deadline-class">
-            完了期限 : {{$task -> deadline}}
+            完了期限 : {{$task['deadline'] -> format('Y年m月d日')}}
         </label>
 
 
@@ -96,7 +96,7 @@
             <input type="hidden" name="excution" value="{{$excution -> excution}}">
             @endif
             @endforeach
-            <input type="submit" value="          達成            " class="btn btn-secondary clear-button">
+            <input type="submit" value="          達成            " class="btn btn-warning clear-button">
         </form>
         @else
         <form class="clear-form" action="{{route('return')}}" method="get">
@@ -118,7 +118,7 @@
         @if($task -> status == 1)
         <form class="edit-form" action="{{route('edit')}}" method="get">
             @csrf
-            <input type="submit" value="           編集           " class="btn btn-success edit-button">
+            <input type="submit" value="           編集           " class="btn btn-dark">
             <input type="hidden" name="id" value="{{$task -> id}}">
             @foreach($excutions as $excution)
             @if($excution ->excution == $task -> deadline)
