@@ -11,7 +11,7 @@ html,body {
     height: 100%;
 }
 
-.container::-webkit-scrollbar {
+*::-webkit-scrollbar {
     display:none;
 }
 
@@ -21,7 +21,7 @@ html,body {
     /* margin: 10px; */
     float: left;
     width: 15%;
-    height: 880px;
+    height: 99%;
     background-color: #ffffff;
     border: solid #000000;
     /* border-radius: 10px; */
@@ -45,6 +45,43 @@ html,body {
 .link{
     float: right;
 }
+
 ul li{
     list-style: none;
 }
+
+.form-control{
+    margin:0px;
+    margin-left: -20px ;
+}
+
+.btn-outline-primary{
+    margin-left:-20px;
+}
+
+h3{
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+.newlabel{
+    margin-left: 20px;
+    font-size: large;
+}
+
+.takelabel{
+    margin-left: 10px;
+    font-size: large;
+}
+.inputlabel{
+    margin-left: 20px;
+}
+.ideallabel{
+    margin-left: 10px;
+}
+.reallabel{
+    font-size: large;
+    margin-left: 60px;
+}
+

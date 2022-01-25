@@ -15,7 +15,7 @@ class idealsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            "ideal" => 68,
+            "ideal" => 65,
         ];
         DB::table("ideals") -> insert($param);
     }

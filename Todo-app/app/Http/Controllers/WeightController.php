@@ -12,9 +12,11 @@ class WeightController extends Controller
     // 一覧表示
     public function show()
     {
-        $real = new Real;
+        $real     = new Real;
         $reallist = $real->all();
-        $ideal = Ideal::first();
+        $ideal    = Ideal::first();
+        $real     = $real::latest()->first();
+
 
         foreach ($reallist as $list) {
             $real_weight[]  = $list->real;
@@ -24,11 +26,13 @@ class WeightController extends Controller
         }
 
         return view("weight", [
-            "weight"  => $real_weight,
-            "date"    => $real_date,
-            "protain" => $real_protain,
-            "calorie" => $real_calorie,
-            "ideal"   => $ideal
+            "weight"    => $real_weight,
+            "date"      => $real_date,
+            "protain"   => $real_protain,
+            "calorie"   => $real_calorie,
+            // 最新データを取得
+            "ideal"     => $ideal,
+            "real"      => $real
         ]);
     }
 
@@ -45,37 +49,22 @@ class WeightController extends Controller
         // 日付データが一致する値を取得
         $test = $real_w->where("date", $date)->first();
 
-        if (isset($test) == false) {
-            // 値が見つからなければ作成
-            $real_w->date     = $date;
-            $real_w->real     = $real;
-            $real_w->save();
+        if ($date == null || $real == null) {
+            return $this->show();
         } else {
-            // 値があればアップデート
-            Real::where("date", $date)->first()->update([
-                'real' => $real,
-            ]);
+            if (isset($test) == false) {
+                // 値が見つからなければ作成
+                $real_w->date     = $date;
+                $real_w->real     = $real;
+                $real_w->save();
+            } else {
+                // 値があればアップデート
+                Real::where("date", $date)->first()->update([
+                    'real' => $real,
+                ]);
+            }
+            return $this->show();
         }
-
-        $real = new Real;
-        $reallist = $real->all();
-        $reals  = Real::oldest("date")->get();
-        foreach ($reals as $real) {
-            $real_date[] = $real->date;
-        }
-        foreach ($reallist as $list) {
-            $real_weight[]  = $list->real;
-            // $real_date[]    = $list->date;
-            $real_protain[] = $list->protain;
-            $real_calorie[] = $list->calorie;
-        }
-
-        return view("weight", [
-            "weight"  => $real_weight,
-            "date"    => $real_date,
-            "protain" => $real_protain,
-            "calorie" => $real_calorie
-        ]);
     }
     //  ===================================================== ideal Controller ================================================================-
 
@@ -86,33 +75,24 @@ class WeightController extends Controller
 
         $id = $request->id;
         $ideal = $request->ideal;
-        $test = $ideal_weight->where("id", $id)->get();
+        $test = $ideal_weight->where("id", $id)->first();
+        if ($ideal == null) {
 
-        if (isset($test) == false) {
-
-            $ideal_weight->ideal = $ideal;
-            $ideal_weight->save();
+            return $this->show();
         } else {
-            $test->update([
-                'ideal' => $ideal,
-            ]);
-        }
 
-        $real = new Real;
-        $reallist = $real->all();
-        foreach ($reallist as $list) {
-            $real_weight[]  = $list->real;
-            $real_date[]    = $list->date;
-            $real_protain[] = $list->protain;
-            $real_calorie[] = $list->calorie;
-        }
+            if (isset($test) == false) {
 
-        return view("weight", [
-            "weight"  => $real_weight,
-            "date"    => $real_date,
-            "protain" => $real_protain,
-            "calorie" => $real_calorie
-        ]);
+                $ideal_weight->ideal = $ideal;
+                $ideal_weight->save();
+            } else {
+                $test->update([
+                    'ideal' => $ideal,
+                ]);
+            }
+
+            return $this->show();
+        }
     }
 
     //  ===================================================== calorie Controller ================================================================-
@@ -126,37 +106,27 @@ class WeightController extends Controller
         $calorie = $request->calorie;
         $test = $real_w->where("date", $date)->first();
 
-        if (isset($test) == false) {
-
-            $real_w->date        = $date;
-            $real_w->calorie     = $calorie;
-            $real_w->save();
+        if ($date == null || $calorie == null) {
+            return $this->show();
         } else {
-            $test->update([
-                "calorie" => $test->calorie += $calorie
-            ]);
+
+
+            if (isset($test) == false) {
+
+                $real_w->date        = $date;
+                $real_w->calorie     = $calorie;
+                $real_w->save();
+            } else {
+                $test->update([
+                    "calorie" => $test->calorie += $calorie
+                ]);
+            }
+
+            return $this->show();
         }
-
-
-        $real = new Real;
-        $reallist = $real->all();
-        $reals  = Real::oldest("date")->get();
-        foreach ($reallist as $list) {
-            $real_weight[]  = $list->real;
-            $real_date[]    = $list->date;
-            $real_protain[] = $list->protain;
-            $real_calorie[] = $list->calorie;
-        }
-
-        return view("weight", [
-            "weight"  => $real_weight,
-            "date"    => $real_date,
-            "protain" => $real_protain,
-            "calorie" => $real_calorie
-        ]);
     }
 
-//  ===================================================== calorie Controller ================================================================-
+    //  ===================================================== protain Controller ================================================================-
 
     function protein(Request $request)
     {
@@ -167,34 +137,21 @@ class WeightController extends Controller
         $protein = $request->protein;
         $test = $proteins->where("date", $date)->first();
 
-        if (isset($test) == false) {
-
-            $proteins->date     = $date;
-            $proteins->protain  = $protein;
-            $proteins->save();
+        if ($date == null || $protein == null) {
+            return $this->show();
         } else {
-            $test->update([
-                "protain" => $test->protain += $protein
-            ]);
-        }
 
-        $real = new Real;
-        $reallist = $real->all();
-        $reals  = Real::oldest("date")->get();
-        foreach ($reallist as $list) {
-            $real_weight[]  = $list->real;
-            $real_date[]    = $list->date;
-            $real_protain[] = $list->protain;
-            $real_calorie[] = $list->calorie;
-        }
+            if (isset($test) == false) {
 
-        return view("weight", [
-            "weight"  => $real_weight,
-            "date"    => $real_date,
-            "protain" => $real_protain,
-            "calorie" => $real_calorie
-        ]);
+                $proteins->date     = $date;
+                $proteins->protain  = $protein;
+                $proteins->save();
+            } else {
+                $test->update([
+                    "protain" => $test->protain += $protein
+                ]);
+            }
+            return $this->show();
+        }
     }
 }
-
-

@@ -14,6 +14,5 @@ class Ideal extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'date';
     protected $fillable = ['ideal'];
 }

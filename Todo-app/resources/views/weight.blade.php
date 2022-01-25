@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYpE html>
 <html lang="ja">
 
 <head>
@@ -7,7 +7,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/weight-style.css') }}">
-    <link rel="stylesheet" href="chart.js">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
 
     <title>体重管理</title>
 </head>
@@ -23,62 +28,89 @@
                     <a href="{{route('home')}}"><img src="{{asset('image/アイコン.jpeg')}}" alt="" width="110px"></a>
                     <a href="{{route('weight')}}"><img src="{{asset('image/体重管理.jpeg')}}" alt="" width="110px"></a>
                 </div>
+                
+                    <h3>目標体重</h3>
+                    <h4>{{$ideal -> ideal}} kg </h4>
+              
+
+                <br><br>
+
+                <h3>- 最新状況 -</h3>
+
+                <label class="newlabel">・摂取カロリー</label>
+                @if($real -> calorie != NULL)
+                <label class="takelabel">{{$real -> calorie}} kcal</label> <br>
+                @else
+                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                @endif
+                <label class="newlabel">・摂取蛋白質</label>
+                @if($real -> protain != NULL)
+                <label class="takelabel">{{$real -> protain}} g </label><br>
+                @else
+                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                @endif
+                <label class="newlabel">・体重</label>
+                @if($real -> real != NULL)
+                <label class="reallabel">{{$real -> real}} kg</label>
+                @else
+                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                @endif
+
+                <br><br>
                 <ul>
-                    <li>理想体重</li>
-                    <li>{{$ideal -> ideal}}kg </li>
-                    <li>BMI</li>
-                    <li>DBから体重 *1.75*1.75</li>
-
+                
                     <li>
-                        <label> 理想体重の更新 </label>
-                        <form action="{{route('ideal')}}" method="post">
-                            @csrf
-                            <input type="text" name="ideal">
-                            <input type="hidden" name="id" value="1">
-                            <input type="submit" value="更新">
-
-                            <!-- Equivalent to... -->
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        </form>
-                    </li>
-
-                    <li>
-                        <label>体重</label>
+                        <label class="inputlabel">- 本日の体重(kg) -</label>
                         <form action="{{route('real')}}" method="post">
                             @csrf
-                            <input type="text" name="real">
-                            <input type="date" name="date" id="today">
-                            <input type="submit" value="登録">
+                            <input type="text" name="real" class="form-control" style="padding:0;">
+                            <input type="date" name="date" id="today" class="form-control" style="padding:0;">
+                            <input type="submit" value="登録" class="btn btn-outline-primary" style="padding:0 93px 0 93px;">
                             <!-- Equivalent to... -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                     </li>
+                    <br>
 
                     <li>
-                        <label>摂取カロリー kcal/日</label>
+                        <label class="inputlabel">- 摂取カロリー (kcal) -</label>
                         <form action="{{route('calorie')}}" method="post">
                             @csrf
-                            <input type="text" name="calorie">
-                            <input type="date" name="date" id="">
-                            <input type="submit" value="登録">
+                            <input type="text" name="calorie" class="form-control" style="padding:0;">
+                            <input type="date" name="date" class="form-control" style="padding:0;">
+                            <input type="submit" value="登録" class="btn btn-outline-primary" style="padding:0 93px 0 93px;">
+
                             <!-- Equivalent to... -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                     </li>
+
+                    <br>
 
                     <li>
-                        <label>摂取タンパク質 g/日</label>
+                        <label class="inputlabel"> - 摂取タンパク質 (g) -</label>
                         <form action="{{route('protein')}}" method="post">
                             @csrf
-                            <input type="text" name="protein">
-                            <input type="date" name="date" id="">
-                            <input type="submit" value="登録">
+                            <input type="text" name="protein" class="form-control" style="padding:0;">
+                            <input type="date" name="date" class="form-control" style="padding:0;">
+                            <input type="submit" value="登録" class="btn btn-outline-primary" style="padding:0 93px 0 93px;">
                             <!-- Equivalent to... -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                     </li>
+                    <br>
+                    <li>
+                        <label class="ideallabel"> - 目標体重の更新(kg) - </label>
+                        <form action="{{route('ideal')}}" method="post">
+                            @csrf
+                            <input type="text" class="form-control" name="ideal" style="padding:0;">
+                            <input type="hidden" name="id" value=1>
+                            <input type="submit" value="更新" class="btn btn-outline-primary" style="padding:0 93px 0 93px;">
 
-
+                            <!-- Equivalent to... -->
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        </form>
+                    </li>
                 </ul>
             </div>
 
@@ -87,28 +119,16 @@
 
         <!-- グラフ表示エリア -->
         <div class="mainContent">
-
             <div class="weightContent">
-                <label>体重管理グラフ</label>
-                <div class="chartWrapper" style="position: relative; overflow-x: scroll; height:420px;">
+                <div class="chartWraper" style="position: relative; overflow-x: scroll; height:390px;">
                     <div class="chartContainer" style="height:300px;">
                         <canvas id="chart" style="position: absolute; left: 0; top: 0;"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- <div class="weightContent">
-                <label>摂取カロリー、摂取蛋白質量</label>
-                <div class="chartWrapper" style="position: relative; overflow-x: scroll; height:330px;">
-                    <div class="chartContainer" style="height:300px;">
-                        <canvas id="myLineChart"></canvas>
-                    </div>
-                </div>
-            </div> -->
-
             <div class="weightContent">
-                <label>摂取カロリー、摂取蛋白質量</label>
-                <div class="chartWrapper" style="position: relative; overflow-x: scroll; height:420px;">
+                <div class="chartWraper" style="position: relative; overflow-x: scroll; height:400px;">
                     <div class="chartContainer" style="height:400px;">
                         <canvas id="canvas"></canvas>
                     </div>
@@ -119,18 +139,17 @@
     </div>
 
     <script>
-        var xAxisLabelMinWidth = 30; // データ当たりの幅を設定
+        var xAxisLabelMinWidth = 25; // データ当たりの幅を設定
         // 体重のデータ
         var data = @json($weight);
         var width = data.length * xAxisLabelMinWidth; // グラフ全体の幅を計算
         document.getElementById('chart').style.width = width + "px"; //　グラフの幅を設定
-        document.getElementById('chart').style.height = "400px"; //htmlと同じ高さを設定
+        document.getElementById('chart').style.height = "370px"; //htmlと同じ高さを設定
         var ctx = document.getElementById('chart').getContext('2d');
         var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: @json($date),
-                    type: 'bar',
                     datasets: [{
                         label: '体重 (kg)',
                         data: data,
@@ -140,14 +159,19 @@
                 },
                 options: {
                     responsive: false, //trueにすると画面の幅に合わせて作図してしまう
+                    title: {
+                        display: true,
+                        text: '体重管理表'
+                    },
                     scales: {
                         yAxes: [{
                             id: "y2",
                             position: "left",
 
                             ticks: {
-                                max: 80,
-                                min:55,
+                                stepSize: 1,
+                                max: 72,
+                                min: 62,
                             }
                         }],
 
@@ -194,7 +218,7 @@
         window.onload = function() {
             ctx = document.getElementById("canvas").getContext("2d");
             document.getElementById('canvas').style.width = width + "px"; //　グラフの幅を設定
-            document.getElementById('canvas').style.height = "400px"; //htmlと同じ高さを設定
+            document.getElementById('canvas').style.height = "380px"; //htmlと同じ高さを設定
             window.myBar = new Chart(ctx, {
                 type: 'bar',
                 data: barChartData,
@@ -227,14 +251,19 @@
 
         var complexChartOption = {
             responsive: false,
+            title: {
+                display: true,
+                text: 'カロリー & 蛋白質管理表'
+            },
             scales: {
                 yAxes: [{
                     id: "y-axis-1",
                     type: "linear",
                     position: "left",
                     ticks: {
+                        stepSize: 100,
                         min: 0,
-                        max: 4000,
+                        max: 3500,
 
                     },
                 }, {
@@ -242,8 +271,9 @@
                     type: "linear",
                     position: "right",
                     ticks: {
-                        min: 0,
-                        max: 250,
+                        stepSize: 10,
+                        min: 20,
+                        max: 200,
 
                     },
                     gridLines: {

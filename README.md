@@ -14,6 +14,19 @@
 	Laravel sail  8.1
 
 ## Setup
+
+	1.必要なソフトのインストール
+		・Laravel Sail
+		  https://readouble.com/laravel/8.x/ja/sail.html
+		・Docker
+		  https://www.docker.com/products/docker-desktop
+		
+	2.Githubアカウントの作成
+		・Github HP
+		  https://github.co.jp/
+		・参考にしたサイト
+		  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d
+		  
 	Github からインストールする場合
 		vendorファイルと.envファイルの作成が必要
 		コマンドプロンプトを使用(Macはターミナル)
