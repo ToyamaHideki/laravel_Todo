@@ -1,12 +1,11 @@
 
-# laravel_Todo
+# 筋トレの美学
 
-	筋トレを学び始めた初学者は
-	自分の好きな部位を鍛えがち
+	筋トレ管理が行えるToDOアプリケーション
+	また体重管理、摂取カロリー、摂取タンパク質の管理が行える
+	機能を搭載したアプリケーションになります。
 
-	先にスケジュール化することで
-	苦手な種目を含め、全身の筋トレを促す
-	筋トレ用todoアプリになります。
+	
 
 ## Dependency
 
@@ -21,37 +20,21 @@
 		・Docker
 		  https://www.docker.com/products/docker-desktop
 		
+		
 	2.Githubアカウントの作成
 		・Github HP
 		  https://github.co.jp/
-		・参考にしたサイト
+		・アカウント作成時、参考にしたサイト
 		  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d
 		  
-	Github からインストールする場合
-		vendorファイルと.envファイルの作成が必要
-		コマンドプロンプトを使用(Macはターミナル)
-		todoアプリのディレクトリ内で 
-		
-		composer install	
-		
-		vendorファイルが作成されたら
-		.envファイルの設定
-		あらかじめ用意されている .env.exampleを
-		.envにリネーム。DBのなどの設定を行う。
-		
-		./vendor/bin/sail up  
-		
-		docker起動後
-		
-		php artisan migrate:refresh --seed
-		
-		DBにデータベースの作成を行う。
-		
-		URL記入欄に
-		
-		localhost  
-		
-		記入でアプリ起動
+		  
+		  
+	3.セットアップ
+		・Githubからクローンを行う
+		　クローン後にvendorファイルと.envファイルの設定が必要
+		・参考サイト
+		　　http://vdeep.net/laravel-git-clone
+		　
 		
 
 ## Usage
@@ -98,6 +81,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	Toyama Hideki
  
 ## References
-
-	https://readouble.com/laravel/8.x/ja/installation.html
+・Laravel Sail
+  https://readouble.com/laravel/8.x/ja/sail.html
+・Docker
+  https://www.docker.com/products/docker-desktop
+・Github HP
+  https://github.co.jp/
+・アカウント作成時、参考にしたサイト
+  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d
+・Githubからクローンを行う(クローン実行後)
+  http://vdeep.net/laravel-git-clone
 

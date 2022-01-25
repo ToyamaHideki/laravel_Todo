@@ -19,7 +19,7 @@
 
     <!--レスポンシブ対応させるよ  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>modal</title>
+    <title>筋トレの美学</title>
 </head>
 <body>
     @yield("content")

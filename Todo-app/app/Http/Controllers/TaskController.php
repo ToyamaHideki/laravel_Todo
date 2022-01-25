@@ -38,10 +38,6 @@ class TaskController extends Controller
     
         }
 
-
-
-
-
     // タスク一覧表示
     public function taskShow(Request $request){
 

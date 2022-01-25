@@ -14,7 +14,7 @@
 
 
 
-    <title>体重管理</title>
+    <title>筋トレの美学 - 体重管理 -</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                     <h4>{{$ideal -> ideal}} kg </h4>
               
 
-                <br><br>
+                <br>
 
                 <h3>- 最新状況 -</h3>
 
@@ -60,7 +60,7 @@
                 <ul>
                 
                     <li>
-                        <label class="inputlabel">- 本日の体重(kg) -</label>
+                        <label class="inputlabel">- 体重測定値(kg) -</label>
                         <form action="{{route('real')}}" method="post">
                             @csrf
                             <input type="text" name="real" class="form-control" style="padding:0;">
@@ -263,7 +263,7 @@
                     ticks: {
                         stepSize: 100,
                         min: 0,
-                        max: 3500,
+                        max: 3000,
 
                     },
                 }, {
@@ -273,7 +273,7 @@
                     ticks: {
                         stepSize: 10,
                         min: 20,
-                        max: 200,
+                        max: 150,
 
                     },
                     gridLines: {

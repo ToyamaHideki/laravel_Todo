@@ -63,8 +63,8 @@ class WeightController extends Controller
                     'real' => $real,
                 ]);
             }
-            return $this->show();
         }
+        return $this->show();
     }
     //  ===================================================== ideal Controller ================================================================-
 
@@ -77,12 +77,9 @@ class WeightController extends Controller
         $ideal = $request->ideal;
         $test = $ideal_weight->where("id", $id)->first();
         if ($ideal == null) {
-
             return $this->show();
         } else {
-
             if (isset($test) == false) {
-
                 $ideal_weight->ideal = $ideal;
                 $ideal_weight->save();
             } else {
