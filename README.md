@@ -6,12 +6,6 @@
 	機能を搭載したアプリケーションになります。  
 
 	
-
-## Dependency
-
-	PHP 8.1.1
-	Laravel sail  8.1
-
 ## Setup
 
     対応OS (Mac,Windows※1)  
@@ -34,7 +28,9 @@
 		   　 https://github.co.jp/  
 		    　アカウント作成時、参考にしたサイト  
 		  　  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d  
-		    
+		1.4 Composerのインストール
+		　　　composer HP
+		　　　https://getcomposer.org/
 		    
 		    
 	 2.GIthubリポジトリのクローン作成   
