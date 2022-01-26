@@ -141,16 +141,20 @@ class TaskController extends Controller
     public function update(Request $request){
         $tk = new Task;
 
-        $tk = $tk -> where("id",$request -> id) ->update([
-            "name"       =>	$request -> name,
-            "status"     =>	$request -> status,
-            "deadline"   =>	$request -> excution,
-            "setcount"   =>	$request -> setcount,
-            "count"	     =>	$request -> count,
-            "genru"	     =>	$request -> genru,
-            "detail"	 =>	$request -> detail
-        ]);
-
+        if($request -> detail == null){
+            redirect("index");
+        }else{
+            $tk = $tk -> where("id",$request -> id) ->update([
+                "name"       =>	$request -> name,
+                "status"     =>	$request -> status,
+                "deadline"   =>	$request -> excution,
+                "setcount"   =>	$request -> setcount,
+                "count"	     =>	$request -> count,
+                "genru"	     =>	$request -> genru,
+                "detail"	 =>	$request -> detail
+            ]);
+        }
+            
         $task = new Task;
 
 

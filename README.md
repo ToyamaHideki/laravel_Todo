@@ -14,28 +14,68 @@
 
 ## Setup
 
-	1.必要なソフトのインストール
-		・Laravel Sail
-		  https://readouble.com/laravel/8.x/ja/sail.html
-		・Docker
-		  https://www.docker.com/products/docker-desktop
+    対応OS (Mac,Windows※1)  
+    ※1 Windowsの方はバージョンによって別途  
+        Ubuntuのインストール､WSL2の設定が必要になります。  
+        
+
+	** 1.事前準備 **  
 		
+		1.1 Dockerのインストール  
+		　　　Docker ホームページ  
+		   　 https://www.docker.com/products/docker-desktop  
+		      
+		1.2 GitBashのインストール(windowsの方)  
+			　gitbash  ダウンロードページ 
+			　https://gitforwindows.org/  
+		      
+		1.3 Githubアカウントの作成  
+			　Github HP  
+		   　 https://github.co.jp/  
+		    　アカウント作成時、参考にしたサイト  
+		  　  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d  
+		    
+		    
+		    
+	** 2.GIthubリポジトリのクローン作成 **  
+	  　　　　  
+	  　2.1 クローンの作成  (Github HP クローン参照)  
+	  　　　https://docs.github.com/ja/repositories/creating-and-managing-repositories/cloning-a-repository  
+	    
+	    
+	    
+	** 3.セットアップ **  
 		
-	2.Githubアカウントの作成
-		・Github HP
-		  https://github.co.jp/
-		・アカウント作成時、参考にしたサイト
-		  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d
-		  
-		  
-		  
-	3.セットアップ
-		・Githubからクローンを行う
-		　クローン後にvendorファイルと.envファイルの設定が必要
-		・参考サイト
-		　　http://vdeep.net/laravel-git-clone
-		　
-		
+		** クローン後にvendorファイルと.envファイルの設定が必要 **  
+		    参考サイト  
+		　　http://vdeep.net/laravel-git-clone  
+		　　  
+		　※seederにはダミーデータが含まれております。
+		　　こちらのコードから実行するseederを指定して実行してください。  
+		　　    
+		　　 ** ./vendor/bin/sail artisan db:seed --class=genrusTableSeeder **  
+		　　    
+		　　Bashエイリアスの設定済みの場合  
+		　　
+		　　 ** sail artisan db:seed --class=genrusTableSeeder **  
+		　　   
+		　　   
+	** 4.sail 起動 **  
+	  
+	  4.1 Sail の起動  
+	    
+	  	** ./vendor/bin/sail up **  
+	  	
+	  4.2 ページ接続  
+	    アドレスバーに下記のアドレスを記入  
+	      
+	    ** localhost **  
+	    
+	  4.3 Sail の停止  
+	    
+	  	** ./vendor/bin/sail up **  
+	  
+	  
 
 ## 使用方法
   
@@ -71,13 +111,13 @@
 2.体重の登録  
 　「-体重測定値(kg)-」入力欄に数値と日付を入力。  
 3.摂取カロリーの登録  
-　「-摂取カロリー(kcal)-」入力欄に数値を日付を入力。※1  
+　「-摂取カロリー(kcal)-」入力欄に数値を日付を入力。※2  
 4.摂取タンパク質の登録  
-　「-摂取タンパク質(g)-」入力欄に数値を日付を入力。※1  
+　「-摂取タンパク質(g)-」入力欄に数値を日付を入力。※2  
 5.目標体重の登録、更新  
 　「-目標体重の更新(kg)-」入力欄に数値を入力  
 　  
-　※1　仕様  
+　※2　仕様  
 　　1日に何回かに分けて数値の入力行う事ができます。  
 　　食事毎に数値の入力を行う。一日の最後に計算した値を入力する  
 　　自分のライフスタイルに合った管理でご利用ください。  
