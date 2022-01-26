@@ -1,0 +1,359 @@
+        @charset "utf-8";
+        /* ============================　全体　============================ */
+        
+        html,
+        body {
+            
+            height: 100%;
+            background-color: #f0f0f0;
+        }
+        
+        .main {
+            width: 100%;
+            height: 100%;
+        }
+        
+        *::-webkit-scrollbar {
+            /* Chrome, Safari 対応 */
+            display: none;
+        }
+        
+        textarea {
+            resize: none;
+        }
+
+        .menu{
+            margin: 0 auto;
+            width: 100%;
+            border: solid;
+           display: inline-flex;
+
+        }
+        /* ===================　SubContent　======================= */
+        
+        .SubContent {
+            /* margin: 10px; */
+            float: left;
+            width: 15%;
+            height: 70%;
+            background-color: #ffffff;
+            border: solid #000000;
+            /* border-radius: 10px; */
+            overflow: scroll
+        }
+        
+        .pdayform {
+            margin: auto auto 10px 50px;
+            clear: both;
+            padding: -10px auto;
+            font-size: large;
+        }
+        
+        .sub_h3 {
+            margin: 15px;
+            float: left;
+        }
+        
+        .project-button {
+            padding: 2px 40px 2px 40px;
+            margin: 0 0 0 -35px;
+            align-content: center;
+            text-align: center;
+        }
+        /* =================== MainContent ======================= */
+        
+        .MainContent {
+            /* margin: 10px 10px 10px auto; */
+            float: right;
+            width: 85%;
+            height: 80%;
+            background-image: url("../image/筋トレの美学.png") ;
+            background-color: #fff;
+            background-size:800px;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: solid 4px #000000;
+            /* border-radius: 10px; */
+            overflow: scroll
+        }
+        
+        .pday_h4 {
+            margin-left: 20px;
+            float: left
+        }
+        
+        .P-button {
+            margin-right: 30px;
+        }
+        /* タスク　div関連 */
+        
+        .tasks-div {
+            width: 40%;
+            padding: 20px;
+            margin: 50px 30px 100px 50px;
+            background: rgb(78, 61, 46);
+            opacity: 0.97;
+            float: left;
+            border: solid rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+        
+        .status-label {
+            background: rgb(252, 83, 83);
+            padding: 15px 100px 15px 100px;
+            position: relative;
+            top: -23px;
+            left: -23px;
+            border: solid rgb(0, 0, 0);
+            color: white;
+            border-radius: 10px;
+            display: inline-block;
+            color: #ffffff;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+            /* 文字の影 */
+        }
+        
+        .clear-form {
+            width: 0;
+            height: 0;
+        }
+        
+        .clear-button {
+            position: relative;
+            top: 0;
+            left: 60px;
+        }
+        
+        ｝ .delete-form {
+            width: 0;
+            height: 0;
+        }
+        
+        .delete-button {
+            position: relative;
+            top: -308.5px;
+            right: -526.5px;
+            width: 30px;
+            height: 30px
+        }
+        
+        .delete-button-inner {
+            width: 15px;
+            height: 15px;
+        }
+        
+        .edit-form {
+            width: 0;
+            height: 0;
+        }
+        
+        .btn-dark {
+            position: relative;
+            top: 0px;
+            right: -300px;       
+        }
+        
+        .genru-label {
+            display: inline-block;
+            color: #ffffff;
+            font-size: large;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+            /* 文字の影 */
+        }
+        
+        .task-label {
+            display: inline-block;
+            color: #ffffff;
+            font-size: large;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+        }
+        
+        .update-label {
+            color: #ffffff;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+        }
+        
+        .deadline-class {
+            color: #ffffff;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+        }
+        
+        .count-label {
+            color: #ffffff;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+        }
+        
+        .coment-label {
+            color: #ffffff;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35), -2px 2px 3px rgba(0, 0, 0, 0.35), 2px -2px 3px rgba(0, 0, 0, 0.35), -2px -2px 3px rgba(0, 0, 0, 0.35), 2px 0px 3px rgba(0, 0, 0, 0.35), 0px 2px 3px rgba(0, 0, 0, 0.35), -2px 0px 3px rgba(0, 0, 0, 0.35), 0px -2px 3px rgba(0, 0, 0, 0.35);
+        }
+        /* ===================　create-task-content　======================= */
+        
+        .create-task-content {
+            position: absolute;
+            top: 84.95%;
+            left: 57.5%;
+            transform: translate(-50%, -50%);
+            /* float: right; */
+            width: 85%;
+            height: 30%;
+            background-color: #a5a5a5;
+            border: solid 4px #000000;
+        }
+        
+        .task-detail-div {
+            float: right;
+        }
+        
+        .create-task-form {
+            margin: 60px;
+        }
+        
+        .task-detail-form {
+            float: right;
+            margin-top: -20px;
+            margin-left: -150px;
+        }
+        /* ===================　create-project-content　======================= */
+        
+        .create-project-content {
+            float: left;
+            width: 15%;
+            height: 30%;
+            background-color: #a5a5a5;
+            border: solid #000000;
+        }
+        
+        .p-small {
+            margin: 0 10px 0 10px;
+        }
+        
+        .project-text {
+        margin: 5px 0 0 30px;
+        }
+       .btn-success{
+            margin: 10px;
+            margin-bottom: 0px;
+        }
+        
+        .task_Day {
+            clear: both;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        /* ===================================================モーダル遷移====================================================== */
+        /* newproject.blade.php  */
+        
+        .select_p {
+            margin-right: 1vh;
+        }
+        
+        .table_p {
+            text-align: center;
+        }
+        /* 閉じるボタン */
+        
+        .square_btn {
+            display: block;
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #333;
+            /* 枠の調整 */
+            background: #fff;
+            /* ボタンの背景色 */
+        }
+        
+        .square_btn::before,
+        .square_btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            /* 棒の幅（太さ） */
+            height: 27px;
+            /* 棒の高さ */
+            background: #333;
+            /* バツ印の色 */
+        }
+        
+        .square_btn::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        
+        .square_btn::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        
+        .newproject_table {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(41, 35, 35)
+        }
+        
+        tr {
+            margin: 30px;
+        }
+        
+        td {
+            padding-right: 10px;
+        }
+        /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーモーダルCSSーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+        /* モーダル全体(背景＋本体) */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+        }
+        /* モーダル背景 */
+        
+        .modal-bg {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        /* モーダル本体 */
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: scroll;
+            /* はみ出た部分はスクロールさせる */
+            height: 60%;
+            /* これが無いと「overflow:scroll」が利かない */
+            width: 60%;
+            /* これが無いと「overflow:scroll」が利かない */
+            background: white;
+            padding: 40px;
+            overflow: scroll
+        }
+        /* モーダルウィンドウ表示中に記事本体を固定 */
+        
+        body.fixed {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+        }
+        /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+        /* Sub画面のプロジェクト */
+        
+        .project_div {
+            background-color: bisque;
+            clear: both;
+            margin: 5px;
+            width: 90% auto;
+            height: 7%;
+            border-radius: 5px;
+        }
