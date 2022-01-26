@@ -19,7 +19,7 @@
         Ubuntuのインストール､WSL2の設定が必要になります。  
         
 
-	** 1.事前準備 **  
+	 1.事前準備   
 		
 		1.1 Dockerのインストール  
 		　　　Docker ホームページ  
@@ -37,45 +37,41 @@
 		    
 		    
 		    
-	** 2.GIthubリポジトリのクローン作成 **  
+	 2.GIthubリポジトリのクローン作成   
 	  　　　　  
 	  　2.1 クローンの作成  (Github HP クローン参照)  
 	  　　　https://docs.github.com/ja/repositories/creating-and-managing-repositories/cloning-a-repository  
 	    
 	    
 	    
-	** 3.セットアップ **  
+	 3.セットアップ  
 		
 		** クローン後にvendorファイルと.envファイルの設定が必要 **  
 		    参考サイト  
 		　　http://vdeep.net/laravel-git-clone  
 		　　  
-		　※seederにはダミーデータが含まれております。
-		　　こちらのコードから実行するseederを指定して実行してください。  
-		　　    
-		　　 ** ./vendor/bin/sail artisan db:seed --class=genrusTableSeeder **  
-		　　    
-		　　Bashエイリアスの設定済みの場合  
-		　　
-		　　 ** sail artisan db:seed --class=genrusTableSeeder **  
-		　　   
-		　　   
-	** 4.sail 起動 **  
+
+	 4.sail 起動   
 	  
-	  4.1 Sail の起動  
+	    4.1 Sail の起動  
 	    
-	  	** ./vendor/bin/sail up **  
+	  	     ./vendor/bin/sail up   
 	  	
-	  4.2 ページ接続  
-	    アドレスバーに下記のアドレスを記入  
+	    4.2 ページ接続  
+	        アドレスバーに下記のアドレスを記入  
 	      
-	    ** localhost **  
-	    
-	  4.3 Sail の停止  
-	    
-	  	** ./vendor/bin/sail up **  
+	         localhost 　　
+	  	    
+	  	    
+	  5.Seeder ファイルの実行
+	 
+	 	ご利用の際、事前にデータベースへの登録が必要になります。
 	  
-	  
+		　　こちらのコードからSeederの実行を行ってください。。  
+		　　    
+		　　  ./vendor/bin/sail artisan db:seed --class=genrusTableSeeder   
+		　　    
+		　　
 
 ## 使用方法
   
@@ -158,8 +154,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   https://www.docker.com/products/docker-desktop  
 ・Github HP  
   https://github.co.jp/  
-・アカウント作成時、参考にしたサイト  
-  https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d  
 ・Githubからクローンを行う(クローン実行後)  
-  http://vdeep.net/laravel-git-clone  
+  http://vdeep.net/laravel-git-clone 
+  
   
