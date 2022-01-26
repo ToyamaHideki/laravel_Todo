@@ -41,19 +41,19 @@
                 @if($real -> calorie != NULL)
                 <label class="takelabel">{{$real -> calorie}} kcal</label> <br>
                 @else
-                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                <br> <label class="takelabel" style="margin-left:30px;">本日の登録はありません</label> <br>
                 @endif
                 <label class="newlabel">・摂取蛋白質</label>
                 @if($real -> protain != NULL)
                 <label class="takelabel">{{$real -> protain}} g </label><br>
                 @else
-                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                <br> <label class="takelabel" style="margin-left:30px;">本日の登録はありません</label> <br>
                 @endif
                 <label class="newlabel">・体重</label>
                 @if($real -> real != NULL)
                 <label class="reallabel">{{$real -> real}} kg</label>
                 @else
-                <br> <label class="takelabel">本日の登録はありません</label> <br>
+                <br> <label class="takelabel" style="margin-left:30px;">本日の登録はありません</label> <br>
                 @endif
 
                 <br><br>
